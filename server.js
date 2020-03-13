@@ -1,18 +1,19 @@
 const express = require('express');
 
 const app = express();
-var sols_customer_data = require('./initial/test.json');
+
 
 app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
-
+const customers = require('./initial/customers.json');
   //res.json(customers);
-  res.json(sols_customer_data);
+  res.json(customers);
 });
+
+app.get('/api/accounts', (req, res) => {
+ const accounts = require('./initial/account.json');
+   //res.json(customers);
+   res.json(accounts);
+ });
 
 const port = 5000;
 
